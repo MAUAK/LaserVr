@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class playerScript : MonoBehaviour
     public GameObject spawnPoint;
     public bool isShooting;
     public GameObject bullet;
+    public GameObject painel;
 
 
     // Use this for initialization
@@ -33,7 +35,7 @@ public class playerScript : MonoBehaviour
         isShooting = true;
         //instantiate the bullet
         GameObject bullet = Instantiate(Resources.Load("bullet", typeof(GameObject))) as GameObject;
-        
+        painel.SetActive(true);
         //Get the bullet's rigid body component and set its position and rotation equal to that of the spawnPoint
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         bullet.transform.rotation = spawnPoint.transform.rotation;
@@ -42,12 +44,13 @@ public class playerScript : MonoBehaviour
         rb.AddForce(spawnPoint.transform.forward * 500f);
         //play the gun shot sound and gun animation
         GetComponent<AudioSource>().Play();
-        gun.GetComponent<Animation>().Play();
+        //gun.GetComponent<Animation>().Play();
         //destroy the bullet after 1 second
         Destroy(bullet, 1);
         //wait for 1 second and set isShooting to false so we can shoot again
         yield return new WaitForSeconds(1f);
         isShooting = false;
+        painel.SetActive(false);
     }
 
     // Update is called once per frame

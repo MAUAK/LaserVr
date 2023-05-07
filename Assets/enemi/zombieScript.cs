@@ -9,18 +9,20 @@ public class zombieScript : MonoBehaviour
     private Transform goal;
     private NavMeshAgent agent;
     public Transform cam;
+    public Animator M;
+
 
     // Use this for initialization
     void Start()
     {
 
         //create references
-        goal = cam;
+        goal = Camera.main.transform; 
         agent = GetComponent<NavMeshAgent>();
         //set the navmesh agent's desination equal to the main camera's position (our first person character)
         agent.destination = goal.position;
         //start the walking animation
-        //GetComponent<Animation>().Play("walk");
+        M = GetComponent<Animator>();
     }
 
 
@@ -36,8 +38,9 @@ public class zombieScript : MonoBehaviour
         //stop the walking animation and play the falling back animation
         //GetComponent<Animation>().Stop();
         //GetComponent<Animation>().Play("back_fall");
+        M.SetTrigger("dead");
         //destroy this zombie in six seconds.
-        Destroy(gameObject, 6);
+        Destroy(gameObject, 3);
         //instantiate a new zombie
         GameObject zombie = Instantiate(Resources.Load("zombie", typeof(GameObject))) as GameObject;
 
