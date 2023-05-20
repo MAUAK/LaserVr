@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - bullet
+  - Coin
+  - Floor
+  - Chave
   layers:
   - Default
   - TransparentFX
