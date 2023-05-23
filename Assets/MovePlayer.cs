@@ -9,24 +9,31 @@ public class MovePlayer : MonoBehaviour
     bool isBack = false;
     bool isLeft = false;
     bool isRight = false;
+    public AudioSource passos;
 
     void Update()
     {
+
         if (isFoward)
         {
-            transform.Translate(0, 0, (speed * Time.fixedDeltaTime));
+            transform.Translate(0, 0, (speed * Time.fixedDeltaTime));            
         }
-        if (isBack)
+        else if (isBack)
         {
             transform.Translate(0, 0, (-speed * Time.fixedDeltaTime));
         }
-        if (isLeft)
+        else if (isLeft)
         {
             transform.Rotate(0, ((-speed-60) * Time.fixedDeltaTime), 0);
         }
-        if (isRight)
+        else if (isRight)
         {
             transform.Rotate(0, ((speed + 60) * Time.fixedDeltaTime), 0);
+        }
+        else
+        {
+            DisableMoveController();
+            passos.Pause    ();
         }
     }
 
@@ -45,29 +52,35 @@ public class MovePlayer : MonoBehaviour
 
     public void DisableMoveController()
     {
+        
         isFoward = false;
         isBack = false;
         isLeft = false;
         isRight = false;
+        
     }
 
     public void Foward()
     {
         EnableMoveController(true, false, false,false);
+        passos.Play();
     }
 
     public void Back()
     {
         EnableMoveController(false,true,false,false);
+        passos.Play();
     }
 
     public void Left()
     {
         EnableMoveController(false,false,true,false);
+        passos.Play();
     }
 
     public void Right()
     {
         EnableMoveController(false,false,false,true);
+        passos.Play();
     }
 }
