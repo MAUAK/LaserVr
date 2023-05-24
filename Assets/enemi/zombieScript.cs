@@ -10,6 +10,8 @@ public class zombieScript : MonoBehaviour
     private NavMeshAgent agent;
     public Transform cam;
     public Animator M;
+    //public AudioSource audioSource;
+   // public AudioClip enemySoundClip;
 
 
     // Use this for initialization
@@ -23,6 +25,8 @@ public class zombieScript : MonoBehaviour
         agent.destination = goal.position;
         //start the walking animation
         M = GetComponent<Animator>();
+       // audioSource = gameObject.AddComponent<AudioSource>();
+       // enemySoundClip = Resources.Load<AudioClip>("PassoEN");
     }
 
 
@@ -35,6 +39,7 @@ public class zombieScript : MonoBehaviour
         Destroy(col.gameObject);
         //stop the zombie from moving forward by setting its destination to it's current position
         agent.destination = gameObject.transform.position;
+      
         //stop the walking animation and play the falling back animation
         //GetComponent<Animation>().Stop();
         //GetComponent<Animation>().Play("back_fall");
@@ -43,7 +48,8 @@ public class zombieScript : MonoBehaviour
         Destroy(gameObject, 3);
         //instantiate a new zombie
         GameObject zombie = Instantiate(Resources.Load("zombie", typeof(GameObject))) as GameObject;
-
+       // audioSource.clip = enemySoundClip;
+        //audioSource.Play();
         //set the coordinates for a new vector 3
         float randomX = UnityEngine.Random.Range(-12f, 12f);
         float constantY = .01f;
