@@ -300,20 +300,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66000952}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 225.7083}
+  m_LocalRotation: {x: -0, y: -0.030988034, z: -0, w: 0.99951977}
+  m_LocalPosition: {x: 0, y: 0, z: 4.195112}
   m_LocalScale: {x: 0.004215267, y: 0.004215267, z: 0.004215267}
   m_Children:
   - {fileID: 691769423}
   - {fileID: 1200718864}
   - {fileID: 1509566399}
   - {fileID: 223118267}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1720216426}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 112.348, y: 13.8619}
+  m_AnchoredPosition: {x: -0.35427856, y: 0.35890007}
   m_SizeDelta: {x: 409.73657, y: 330.97162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &134472439
@@ -329,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 766346198, guid: 463285ecd6702471a909ba810832bf0e, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 766346198, guid: 463285ecd6702471a909ba810832bf0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -848,6 +848,7 @@ GameObject:
   - component: {fileID: 691769423}
   - component: {fileID: 691769425}
   - component: {fileID: 691769424}
+  - component: {fileID: 691769426}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -911,6 +912,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691769422}
   m_CullTransparentMesh: 0
+--- !u!114 &691769426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691769422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5961aa0d041060f4eb9a151ee4fe6df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &755866151
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,14 +964,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755866151}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.6848554, z: -0, w: 0.72867906}
   m_LocalPosition: {x: 116.557, y: 13.503, z: 225.802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1720216426}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: -86.448006, z: 0}
 --- !u!1 &809367276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1599,6 @@ GameObject:
   - component: {fileID: 1200718866}
   - component: {fileID: 1200718865}
   - component: {fileID: 1200718869}
-  - component: {fileID: 1200718868}
   m_Layer: 5
   m_Name: restart
   m_TagString: Untagged
@@ -1656,18 +1668,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1200718866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1200718868}
-        m_MethodName: iniciarGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1200718866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,18 +1706,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200718863}
   m_CullTransparentMesh: 0
---- !u!114 &1200718868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200718863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5961aa0d041060f4eb9a151ee4fe6df0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1200718869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1734,7 +1723,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1200718868}
+        - m_Target: {fileID: 691769426}
           m_MethodName: iniciarGame
           m_Mode: 1
           m_Arguments:
@@ -1995,7 +1984,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1463109155
 GameObject:
@@ -2032,7 +2021,7 @@ Transform:
   - {fileID: 1287234559}
   - {fileID: 809367280}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1463109157
 AudioSource:
@@ -2143,7 +2132,6 @@ GameObject:
   - component: {fileID: 1509566401}
   - component: {fileID: 1509566400}
   - component: {fileID: 1509566404}
-  - component: {fileID: 1509566403}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -2213,18 +2201,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1509566401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1509566403}
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1509566401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2262,18 +2239,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509566398}
   m_CullTransparentMesh: 0
---- !u!114 &1509566403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509566398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5961aa0d041060f4eb9a151ee4fe6df0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1509566404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,7 +2256,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1509566403}
+        - m_Target: {fileID: 691769426}
           m_MethodName: QuitGame
           m_Mode: 1
           m_Arguments:
@@ -2400,6 +2365,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 66000956}
   - {fileID: 1931122169}
   m_Father: {fileID: 755866153}
   m_RootOrder: 0
@@ -2687,7 +2653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2837,7 +2803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 3}
       propertyPath: m_LocalPosition.x
