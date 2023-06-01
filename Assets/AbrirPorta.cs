@@ -10,7 +10,7 @@ public class AbrirPorta : MonoBehaviour
     {
         if (other.CompareTag("Player") && ch.temChave == true)
         {
-            SceneManager.LoadScene("Vitoria");
+            SceneManager.LoadScene("Demo 3");
         }
     }
 }

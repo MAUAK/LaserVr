@@ -19,7 +19,7 @@ public class PlayerVida : MonoBehaviour
     {
         if (Health == 0)
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Demo 2");
         }
     }
     private void OnCollisionEnter(Collision collision)
