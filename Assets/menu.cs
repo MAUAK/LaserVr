@@ -10,7 +10,17 @@ public class menu : MonoBehaviour
         SceneManager.LoadScene("Demo");
     }
 
-   public void QuitGame()
+    public void Menu()
+    {
+        SceneManager.LoadScene("Demo 1");
+    }
+
+    public void Creditos()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
+
+    public void QuitGame()
     {
         Debug.Log("Saindo do jogo!");
         Application.Quit();

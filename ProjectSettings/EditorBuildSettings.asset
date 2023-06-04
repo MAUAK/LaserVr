@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Cabin/Demo 3.unity
     guid: e592e4a68e91f5149a599068ad28e3b8
+  - enabled: 1
+    path: Assets/Cabin/Creditos.unity
+    guid: f30d5877d1d71bb4ab77c3ffcd3dca19
   m_configObjects: {}
