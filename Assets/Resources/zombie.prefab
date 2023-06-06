@@ -2075,9 +2075,9 @@ GameObject:
   - component: {fileID: 7328109302771204535}
   - component: {fileID: 3698159261752499149}
   - component: {fileID: 2950773369440050224}
-  - component: {fileID: 6930855181942281978}
   - component: {fileID: 2818147666149987088}
   - component: {fileID: 9115977262074032437}
+  - component: {fileID: 8464972114591900299}
   m_Layer: 8
   m_Name: zombie
   m_TagString: Untagged
@@ -2134,22 +2134,6 @@ CapsuleCollider:
   m_Height: 1.81
   m_Direction: 1
   m_Center: {x: 0, y: 1.01, z: 0}
---- !u!114 &6930855181942281978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7996559198170749709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc459bc1f0b3264bb66c9a766651f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  M: {fileID: 0}
-  audioSource: {fileID: 0}
-  enemySoundClip: {fileID: 0}
 --- !u!195 &2818147666149987088
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2188,6 +2172,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8464972114591900299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996559198170749709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc459bc1f0b3264bb66c9a766651f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombiePrefab: {fileID: 7996559198170749709}
+  spawnDistance: 40
 --- !u!1 &8119256406947254705
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,68 +5,69 @@ using UnityEngine.AI;
 
 public class zombieScript : MonoBehaviour
 {
-    //declare the transform of our goal (where the navmesh agent will move towards) and our navmesh agent (in this case our zombie)
-    private Transform goal;
+    public GameObject zombiePrefab; // Prefab do inimigo
+    public float spawnDistance = 10f; // Distância de spawn em relação ao jogador
+
+    private Transform player;
     private NavMeshAgent agent;
-    public Transform cam;
-    public Animator M;
-    //public AudioSource audioSource;
-   // public AudioClip enemySoundClip;
+    private Animator animator;
 
+    private bool isDead = false;
 
-    // Use this for initialization
     void Start()
     {
-
-        //create references
-        goal = Camera.main.transform; 
+        player = Camera.main.transform;
         agent = GetComponent<NavMeshAgent>();
-        //set the navmesh agent's desination equal to the main camera's position (our first person character)
-        agent.destination = goal.position;
-        //start the walking animation
-        M = GetComponent<Animator>();
-       // audioSource = gameObject.AddComponent<AudioSource>();
-       // enemySoundClip = Resources.Load<AudioClip>("PassoEN");
+        animator = GetComponent<Animator>();
+        agent.destination = player.position;
+        animator.SetBool("isWalking", true);
+    }
+
+    void Update()
+    {
+        if (!isDead)
+        {
+            agent.destination = player.position;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (!isDead && other.CompareTag("bullet"))
+        {
+            isDead = true;
+
+            Destroy(other.gameObject); // Destruir a bala
+
+            // Parar o inimigo e iniciar a animação de morte
+            agent.isStopped = true;
+            animator.SetTrigger("dead");
+
+            // Chamar a função SpawnZombie após a animação de morte
+            StartCoroutine(SpawnZombie());
+        }
+    }
+
+    IEnumerator SpawnZombie()
+    {
+        // Aguardar o término da animação de morte
+        float deathAnimationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(deathAnimationDuration);
+
+        // Calcular uma posição longe do jogador para spawnar o novo inimigo
+        Vector3 spawnPosition = player.position + (Random.insideUnitSphere * spawnDistance);
+        spawnPosition.y = 0f;
+
+        // Spawn de um novo inimigo
+        GameObject newZombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+        newZombie.GetComponent<zombieScript>().SetPlayer(player);
+
+        Destroy(gameObject); // Destruir o inimigo atual
     }
 
 
-    //for this to work both need colliders, one must have rigid body, and the zombie must have is trigger checked.
-    void OnTriggerEnter(Collider col)
+    public void SetPlayer(Transform newPlayer)
     {
-        //first disable the zombie's collider so multiple collisions cannot occur
-        GetComponent<CapsuleCollider>().enabled = false;
-        //destroy the bullet
-        Destroy(col.gameObject);
-        //stop the zombie from moving forward by setting its destination to it's current position
-        agent.destination = gameObject.transform.position;
-      
-        //stop the walking animation and play the falling back animation
-        //GetComponent<Animation>().Stop();
-        //GetComponent<Animation>().Play("back_fall");
-        M.SetTrigger("dead");
-        //destroy this zombie in six seconds.
-        Destroy(gameObject, 3);
-        //instantiate a new zombie
-        GameObject zombie = Instantiate(Resources.Load("zombie", typeof(GameObject))) as GameObject;
-       // audioSource.clip = enemySoundClip;
-        //audioSource.Play();
-        //set the coordinates for a new vector 3
-        float randomX = UnityEngine.Random.Range(-12f, 12f);
-        float constantY = .01f;
-        float randomZ = UnityEngine.Random.Range(-13f, 13f);
-        //set the zombies position equal to these new coordinates
-        zombie.transform.position = new Vector3(randomX, constantY, randomZ);
-
-        //if the zombie gets positioned less than or equal to 3 scene units away from the camera we won't be able to shoot it
-        //so keep repositioning the zombie until it is greater than 3 scene units away. 
-        while (Vector3.Distance(zombie.transform.position, Camera.main.transform.position) <= 3)
-        {
-
-            randomX = UnityEngine.Random.Range(-12f, 12f);
-            randomZ = UnityEngine.Random.Range(-13f, 13f);
-
-            zombie.transform.position = new Vector3(randomX, constantY, randomZ);
-        }
-
+        player = newPlayer;
     }
 }
