@@ -11,6 +11,7 @@ public class zombieScript : MonoBehaviour
     private Transform player;
     private NavMeshAgent agent;
     private Animator animator;
+    public EnemySound enemySound; // Referência ao script EnemySound
 
     private bool isDead = false;
 
@@ -21,12 +22,16 @@ public class zombieScript : MonoBehaviour
         animator = GetComponent<Animator>();
         agent.destination = player.position;
         animator.SetBool("isWalking", true);
+        enemySound = GetComponent<EnemySound>(); // Obtém o script EnemySound no inimigo
+
     }
 
     void Update()
     {
+
         if (!isDead)
         {
+            
             agent.destination = player.position;
         }
     }
@@ -61,7 +66,7 @@ public class zombieScript : MonoBehaviour
         // Spawn de um novo inimigo
         GameObject newZombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
         newZombie.GetComponent<zombieScript>().SetPlayer(player);
-
+   
         Destroy(gameObject); // Destruir o inimigo atual
     }
 
@@ -69,5 +74,6 @@ public class zombieScript : MonoBehaviour
     public void SetPlayer(Transform newPlayer)
     {
         player = newPlayer;
+        enemySound.PlayChaseSound(); // Reproduz o som de perseguição
     }
 }
